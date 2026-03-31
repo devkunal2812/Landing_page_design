@@ -70,7 +70,6 @@ export default function SystemCore({ heroRef }) {
 
   return (
     <div className={styles.coreWrapper}>
-      {/* The orbital visual — desktop full, mobile compact */}
       <div className={styles.core} id="system-core" ref={coreRef}>
         <ConnectionsSVG />
 
@@ -91,10 +90,10 @@ export default function SystemCore({ heroRef }) {
         ))}
       </div>
 
-      {/* Mobile-only: horizontal scroll pill strip */}
-      <div className={styles.mobilePillRow} data-pill-row>
+      {/* Mobile pill scroll strip — pills inside are shown/hidden via CSS */}
+      <div className={styles.mobilePillRow}>
         {SKILL_CARDS.map((card) => (
-          <SkillCard key={`m-${card.id}`} {...card} mobile={true} />
+          <SkillCard key={`m-${card.id}`} {...card} />
         ))}
       </div>
     </div>
