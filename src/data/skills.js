@@ -6,7 +6,7 @@ export const SKILL_CARDS = [
     floatDur: '4.2s',
     iconVariant: 'iconDark',
     title: 'Frontend Development',
-    sub: 'React · Next.js · Web3 · JavaScript · CSS'
+    sub: 'React · Next.js · Web3 ·'
     icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
       <polyline points="16 18 22 12 16 6"/>
       <polyline points="8 6 2 12 8 18"/>
