@@ -31,7 +31,7 @@ export default function Nav() {
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.logo}>
           <span className={styles.logoDot} />
-          <span>kunal's Build</span>
+          <span>Kunal's Build</span>
         </div>
 
         {/* Desktop links */}
