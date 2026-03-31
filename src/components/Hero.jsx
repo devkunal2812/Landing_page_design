@@ -3,7 +3,7 @@ import SystemCore from './SystemCore'
 import styles from './Hero.module.css'
 
 const STATS = [
-  { value: '3+', label: 'Years Experience' },
+  { value: '2+', label: 'Years Experience' },
   { value: '20+', label: 'Projects Shipped' },
   { value: '10+', label: 'Happy Clients' },
 ]
