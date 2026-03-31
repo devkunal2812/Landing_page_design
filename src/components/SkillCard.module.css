@@ -1,3 +1,4 @@
+/* ── Floating card (desktop) ── */
 .card {
   position: absolute;
   display: flex;
@@ -26,7 +27,7 @@
   border-color: var(--border-hover);
 }
 
-/* ── Positions — 6 cards around the core ── */
+/* ── Positions ── */
 .cardTl { top: 5%;    left: -2%;  }
 .cardTr { top: 5%;    right: -2%; }
 .cardL  { top: 38%;   left: -5%;  }
@@ -87,7 +88,12 @@
   text-overflow: ellipsis;
 }
 
-/* ── Responsive ── */
+/* ── Mobile pill — hidden on desktop ── */
+.mobilePill {
+  display: none;
+}
+
+/* ── Responsive desktop tweaks ── */
 @media (max-width: 1200px) {
   .card { min-width: 182px; max-width: 210px; padding: 11px 13px; }
 }
@@ -98,48 +104,59 @@
   .cardR  { right: -6%; }
 }
 
-/* On mobile the .card is hidden — only .mobilePill shows */
+/* ── Mobile: hide floating cards, show pills ── */
 @media (max-width: 640px) {
-  .card { display: none; }
-}
+  .card { display: none !important; }
 
-/* ── Mobile pill (always flex — only rendered when mobile=true prop) ── */
-.mobilePill {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 8px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  padding: 8px 14px 8px 8px;
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  white-space: nowrap;
-  cursor: default;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
+  .mobilePill {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 8px;
+    /* gradient border trick */
+    background:
+      linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+      linear-gradient(135deg, rgba(59,130,246,0.35), rgba(99,102,241,0.25)) border-box;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    padding: 7px 14px 7px 7px;
+    box-shadow: 0 2px 12px rgba(59,130,246,0.08), 0 1px 4px rgba(0,0,0,0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    white-space: nowrap;
+    cursor: default;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
 
-.mobilePill:active {
-  box-shadow: var(--shadow-card-hover);
-  border-color: var(--border-hover);
-}
+  .mobilePill:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 18px rgba(59,130,246,0.15);
+  }
 
-.pillIcon {
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
+  .pillIcon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(99,102,241,0.1));
+    border: 1px solid rgba(59,130,246,0.18);
+  }
 
-.pillIcon svg { width: 13px; height: 13px; display: block; }
+  .pillIcon svg { width: 13px; height: 13px; display: block; }
 
-.pillTitle {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
+  /* Icon variant colors carry through on mobile too */
+  .iconDark.pillIcon   { background: rgba(0,0,0,0.07);       border-color: rgba(0,0,0,0.12);       color: #111; }
+  .iconMid.pillIcon    { background: rgba(100,100,100,0.08);  border-color: rgba(100,100,100,0.15); color: #555; }
+  .iconAccent.pillIcon { background: rgba(59,130,246,0.12);   border-color: rgba(59,130,246,0.22);  color: var(--accent); }
+  .iconIndigo.pillIcon { background: rgba(99,102,241,0.1);    border-color: rgba(99,102,241,0.2);   color: var(--accent-dim); }
+  .iconSlate.pillIcon  { background: rgba(71,85,105,0.09);    border-color: rgba(71,85,105,0.16);   color: #475569; }
+
+  .pillTitle {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
 }
