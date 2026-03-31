@@ -20,10 +20,10 @@ export default function Nav() {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  const handleNav = (e, id) => {
+  const handleNav = (e) => {
     e.preventDefault()
     setOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    window.open('https://linktr.ee/Kunal_Builds', '_blank')
   }
 
   return (
@@ -38,13 +38,23 @@ export default function Nav() {
         <ul className={styles.links}>
           {links.map((l) => (
             <li key={l}>
-              <a href={`#${l.toLowerCase()}`} onClick={(e) => handleNav(e, l.toLowerCase())}>{l}</a>
+              <a
+                href="https://linktr.ee/Kunal_Builds"
+                onClick={handleNav}
+              >
+                {l}
+              </a>
             </li>
           ))}
         </ul>
 
         <div className={styles.navRight}>
-          <a href="https://linktr.ee/Kunal_Builds" className={styles.status} onClick={(e) => handleNav(e, 'contact')} aria-label="Available for work">
+          <a
+            href="https://linktr.ee/Kunal_Builds"
+            className={styles.status}
+            onClick={handleNav}
+            aria-label="Available for work"
+          >
             <span className={styles.statusDot} />
             <span className={styles.statusText}>Available for work</span>
           </a>
@@ -66,11 +76,21 @@ export default function Nav() {
         <ul className={styles.drawerLinks}>
           {links.map((l) => (
             <li key={l}>
-              <a href={`#${l.toLowerCase()}`} onClick={(e) => handleNav(e, l.toLowerCase())}>{l}</a>
+              <a
+                href="https://linktr.ee/Kunal_Builds"
+                onClick={handleNav}
+              >
+                {l}
+              </a>
             </li>
           ))}
         </ul>
-        <a href="https://linktr.ee/Kunal_Builds" className={styles.drawerStatus} onClick={(e) => handleNav(e, 'contact')}>
+
+        <a
+          href="https://linktr.ee/Kunal_Builds"
+          className={styles.drawerStatus}
+          onClick={handleNav}
+        >
           <span className={styles.statusDot} />
           Available for work
         </a>
