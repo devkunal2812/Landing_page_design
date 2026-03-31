@@ -50,7 +50,7 @@ export default function Hero() {
 
         <p className={styles.sub}>
           I craft high-performance web apps blending design precision with modern
-          engineering — from pixel-perfect UI to scalable backend systems.
+          engineering - from pixel-perfect UI to scalable backend systems.
         </p>
 
         {/* Tech stack chips */}
