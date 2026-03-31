@@ -44,7 +44,7 @@ export default function Nav() {
         </ul>
 
         <div className={styles.navRight}>
-          <a href="#contact" className={styles.status} onClick={(e) => handleNav(e, 'contact')} aria-label="Available for work">
+          <a href="https://linktr.ee/Kunal_Builds" className={styles.status} onClick={(e) => handleNav(e, 'contact')} aria-label="Available for work">
             <span className={styles.statusDot} />
             <span className={styles.statusText}>Available for work</span>
           </a>
@@ -70,7 +70,7 @@ export default function Nav() {
             </li>
           ))}
         </ul>
-        <a href="#contact" className={styles.drawerStatus} onClick={(e) => handleNav(e, 'contact')}>
+        <a href="https://linktr.ee/Kunal_Builds" className={styles.drawerStatus} onClick={(e) => handleNav(e, 'contact')}>
           <span className={styles.statusDot} />
           Available for work
         </a>
